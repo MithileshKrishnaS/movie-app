@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title></title>
+</head>
+<body>
+    <div id="header">
+        <div id="h-left"><i class="fas fa-tv"></i>    MYTV</div>
+        <div id="h-right">
+        <input list="language" [(ngModel)]="language" (change)="setlang()" placeholder="select language">
+            <datalist id="language">
+            <option value="English">
+            <option value="Portuguese">
+            <option value="German">
+            </datalist><br><br>
+        </div>
+    </div>
+
+    <div id="movie-list">
+        <div *ngFor="let mi of list" (click)="abc(mi.id)" [routerLink]="['/movie',mi.id]" id="each">
+            <p id="name">{{mi.title}}</p>
+            <img src="http://image.tmdb.org/t/p/w500{{mi.poster_path}}">
+            <!-- <p>id: {{mi.id}}</p> -->
+            <p>result date: {{mi.release_date}}</p>
+            <div id="footer">
+                <p><i class="fas fa-eye"></i> {{mi.popularity}}</p>
+                <p id="vote"><i class="fas fa-heart"></i> {{mi.vote_count}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- <button (click)="abc()">submit</button> -->
+</body>
+</html>
+<!-- <button (click)="abc()">submit</button> -->
+<!-- <div *ngFor="let li of list">{{li}}</div> -->

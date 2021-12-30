@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+    <div id="header">
+        <div id="h-left"><i class="fas fa-tv"></i>    MYTV</div>
+        <div id="h-right">
+        <a [routerLink]="['/home']">home <i class="fas fa-home"></i></a>
+        </div>
+    </div>
+    <p id="title">{{details.original_title}}</p>
+    <hr>
+    <div id="frame">
+        <iframe [src]='url|pipe' frameborder=0 allowfullscreen width="1080" height="640"></iframe>
+    </div>
+    <br><br>
+    <h1>Synopsis:</h1>
+    <hr>
+    <p id="overview">{{details.overview}}</p>
+    <br><br>
+    <h1>Genre:</h1>
+    <hr>
+    <div id="genre">
+        <span  *ngFor="let d of details.genres">{{d.name}}, </span>
+    </div>
+    <br><br>
+    <h1>Cast</h1>
+    <hr>
+    <div id="cast">
+        <div *ngFor="let c of cast" id="each">
+            <img src="http://image.tmdb.org/t/p/w500{{c.profile_path}}"><br>
+            {{c.name}}
+        </div>
+    </div>
+</body>
+</html>
